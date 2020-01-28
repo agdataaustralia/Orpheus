@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{A935A392-31A7-495E-97CD-B9D7F3AE2C64}</ProjectGuid>
         <MainSource>OrpheusDBDD.dpk</MainSource>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
         <ProjectVersion>18.6</ProjectVersion>
         <Base>True</Base>
@@ -66,7 +66,7 @@
         <SanitizedProjectName>OrpheusDBDD</SanitizedProjectName>
         <DCC_OutputNeverBuildDcps>true</DCC_OutputNeverBuildDcps>
         <DCC_UsePackage>dbrtl;$(DCC_UsePackage)</DCC_UsePackage>
-        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_DcuOutput>..\..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <VerInfo_Keys>FileVersion=5.0.0.0;ProductVersion=5.0.0.0;CompanyName=;FileDescription=;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -85,6 +85,8 @@
         <GenPackage>true</GenPackage>
         <DCC_E>false</DCC_E>
         <DCC_F>false</DCC_F>
+        <DCC_DcpOutput>..\..\lib\$(Platform)\$(Config)</DCC_DcpOutput>
+        <DCC_BplOutput>..\..\bin</DCC_BplOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <EnabledSysJars>android-support-v4.dex.jar;apk-expansion.dex.jar;cloud-messaging.dex.jar;fmx.dex.jar;google-analytics-v2.dex.jar;google-play-billing.dex.jar;google-play-licensing.dex.jar;google-play-services.dex.jar</EnabledSysJars>
