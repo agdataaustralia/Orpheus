@@ -288,7 +288,7 @@ type
   protected
     procedure AncestorNotFound(Reader: TReader; const ComponentName: string;
       ComponentClass: TPersistentClass; var Component: TComponent);
-    procedure ChangeScale(M, D : Integer);
+    procedure ChangeScale(M, D : Integer; isDpiChange: Boolean);
       override;
     procedure CreateParams(var Params : TCreateParams);
       override;
@@ -912,9 +912,9 @@ begin
   end;
 end;
 
-procedure TOvcNotebook.ChangeScale(M, D : Integer);
+procedure TOvcNotebook.ChangeScale(M, D : Integer; isDpiChange: Boolean);
 begin
-  inherited ChangeScale(M, D);
+  inherited ChangeScale(M, D, isDpiChange);
 
   if M <> D then begin
     {scale the tab height and widths}

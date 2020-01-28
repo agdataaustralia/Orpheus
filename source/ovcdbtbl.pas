@@ -383,7 +383,7 @@ type
     procedure tbUpdateVScrollBar;
     procedure tbWriteColData(Writer : TWriter);
   protected
-    procedure ChangeScale(M, D : Integer); override;
+    procedure ChangeScale(M, D : Integer; isDpiChange: Boolean); override;
     procedure CreateParams(var Params : TCreateParams); override;
     procedure CreateWnd; override;
     procedure DefineProperties(Filer : TFiler); override;
@@ -960,11 +960,11 @@ begin
   end;
 end;
 
-procedure TOvcCustomDbTable.ChangeScale(M, D : Integer);
+procedure TOvcCustomDbTable.ChangeScale(M, D : Integer; isDpiChange: Boolean);
 var
   I : Integer;
 begin
-  inherited ChangeScale(M, D);
+  inherited ChangeScale(M, D, isDpiChange);
 
   if (M <> D) then
     for I := 0 to Pred(ColumnCount) do
