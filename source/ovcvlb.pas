@@ -314,7 +314,7 @@ type
       message LB_SETTOPINDEX;
 
   protected
-    procedure ChangeScale(M, D : Integer);
+    procedure ChangeScale(M, D : Integer; isDpiChange: Boolean);
       override;
     procedure CreateParams(var Params: TCreateParams);
       override;
@@ -583,9 +583,9 @@ begin
     TopIndex := Index - (lRows div 2);
 end;
 
-procedure TOvcCustomVirtualListBox.ChangeScale(M, D : Integer);
+procedure TOvcCustomVirtualListBox.ChangeScale(M, D : Integer; isDpiChange: Boolean);
 begin
-  inherited ChangeScale(M, D);
+  inherited ChangeScale(M, D, isDpiChange);
 
   if M <> D then begin
     {scale row height}

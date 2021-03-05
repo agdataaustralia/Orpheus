@@ -236,7 +236,7 @@ type
         override;
 
       {streaming routines}
-      procedure ChangeScale(M, D : integer); override;
+      procedure ChangeScale(M, D : integer; isDpiChange: Boolean); override;
       procedure DefineProperties(Filer : TFiler); override;
       procedure Loaded; override;
 
@@ -567,11 +567,11 @@ begin
     Value.FreeNotification(Self);
 end;
 
-procedure TOvcTableAncestor.ChangeScale(M, D : integer);
+procedure TOvcTableAncestor.ChangeScale(M, D : integer; isDpiChange: Boolean);
   var
     i : integer;
   begin
-    inherited ChangeScale(M, D);
+    inherited ChangeScale(M, D, isDpiChange);
     if (M <> D) then
       for i := 0 to pred(taCellList.Count) do
         TOvcTableCellAncestor(taCellList[i]).tcChangeScale(M, D);
