@@ -938,11 +938,7 @@ procedure TOvcCustomTable.CreateWnd;
 {--------}
 
 procedure TOvcCustomTable.Loaded;
-const
-  cDefPPI = 96;
 begin
-  if not (csDesigning in ComponentState) then
-    ChangeScale(Screen.PixelsPerInch, cDefPPI);
   inherited Loaded;
 end;
 
