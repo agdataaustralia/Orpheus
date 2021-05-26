@@ -79,8 +79,6 @@ type
   end;
 
   TOvcTCCustomGlyph = class(TOvcTCBaseBitMap)
-    strict private
-      procedure ResizeGlyph(const ABitmap: TBitmap);
     protected {private}
 
       FCellGlyphs : TOvcCellGlyphs;
@@ -164,9 +162,6 @@ type
 
 implementation
 
-uses
-  Forms;
-
 {===TOvcTCCustomGlyph creation/destruction===========================}
 constructor TOvcTCCustomGlyph.Create(AOwner : TComponent);
   begin
@@ -204,8 +199,6 @@ procedure TOvcTCCustomGlyph.GlyphsHaveChanged(Sender : TObject);
 {--------}
 procedure TOvcTCCustomGlyph.Loaded;
 begin
-  if not (csDesigning in ComponentState) then
-    ResizeGlyph(CellGlyphs.BitMap);
   inherited Loaded;
 end;
 {--------}
@@ -286,34 +279,6 @@ procedure TOvcTCCustomGlyph.EditMove(CellRect : TRect);
         UpdateWindow(EditHandle);
       end;
   end;
-{--------}
-procedure TOvcTCCustomGlyph.ResizeGlyph(const ABitmap: TBitmap);
-const
-  cDefaultPPI = 96;
-  cPPIThreshold = 150;
-  cPercent = 100;
-var
-  lBitmap: TBitmap;
-begin
-  if (ABitmap = nil) or ABitmap.Empty then
-    Exit;
-  if Screen.PixelsPerInch = cDefaultPPI then
-    Exit;
-  if Screen.PixelsPerInch * cPercent / cDefaultPPI <= cPPIThreshold then
-    Exit;
-
-  lBitmap := TBitmap.Create;
-  try
-    lBitmap.Width := MulDiv(ABitmap.Width, Screen.PixelsPerInch, cDefaultPPI);
-    lBitmap.Height := MulDiv(ABitmap.Height, Screen.PixelsPerInch, cDefaultPPI);
-    lBitmap.Canvas.FillRect(lBitmap.Canvas.ClipRect);
-
-    lBitmap.Canvas.StretchDraw(Rect(0, 0, lBitmap.Width, lBitmap.Height), ABitmap) ;
-    ABitmap.Assign(lBitmap);
-  finally
-    lBitmap.Free;
-  end;
-end;
 {--------}
 procedure TOvcTCCustomGlyph.SaveEditedData(Data : pointer);
   begin
