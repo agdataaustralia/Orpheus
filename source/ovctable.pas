@@ -193,7 +193,7 @@ type
       procedure SetColorUnused(CU : TColor);
 
       {overridden Delphi VCL methods}
-      procedure ChangeScale(M, D : integer); override;
+      procedure ChangeScale(M, D : integer; isDpiChange: Boolean); override;
       procedure Notification(AComponent: TComponent; Operation: TOperation); override;
 
       {general methods}
@@ -938,11 +938,7 @@ procedure TOvcCustomTable.CreateWnd;
 {--------}
 
 procedure TOvcCustomTable.Loaded;
-const
-  cDefPPI = 96;
 begin
-  if not (csDesigning in ComponentState) then
-    ChangeScale(Screen.PixelsPerInch, cDefPPI);
   inherited Loaded;
 end;
 
@@ -3108,11 +3104,11 @@ function TOvcCustomTable.tbCalcRequiresVSBar : boolean;
         end;
   end;
 {--------}
-procedure TOvcCustomTable.ChangeScale(M, D : integer);
+procedure TOvcCustomTable.ChangeScale(M, D : integer; isDpiChange: Boolean); // AGDATA correction
   var
     i : TColNum;
   begin
-    inherited ChangeScale(M, D);
+    inherited ChangeScale(M, D, isDpiChange); // AGDATA correction
     if (M <> D) then
       begin
         Rows.rwScaleHeights(M, D);
