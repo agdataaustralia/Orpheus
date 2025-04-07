@@ -55,7 +55,6 @@ PACKAGE OrpheusDBDR;
 {$IMPLICITBUILD OFF}
 
 requires
-  vclx,
   dbrtl,
   vcldb,
   OrpheusDR;

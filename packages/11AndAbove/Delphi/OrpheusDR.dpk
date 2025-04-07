@@ -55,7 +55,8 @@ PACKAGE OrpheusDR;
 {$IMPLICITBUILD OFF}
 
 requires
-  Vcl;
+  vcl,
+  rtl;
 
 contains
   ovcabtn in '..\..\..\source\ovcabtn.pas',

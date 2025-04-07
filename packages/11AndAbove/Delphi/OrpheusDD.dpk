@@ -55,8 +55,6 @@ PACKAGE OrpheusDD;
 {$IMPLICITBUILD OFF}
 
 requires
-  Vcl,
-  Vclx,
   designide,
   OrpheusDR;
 

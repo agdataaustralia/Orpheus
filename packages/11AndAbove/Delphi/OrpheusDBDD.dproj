@@ -52,7 +52,7 @@
         <SanitizedProjectName>OrpheusDBDD</SanitizedProjectName>
         <DCC_BpiOutput>..\cpp\$(Platform)\$(Config)</DCC_BpiOutput>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
-        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_DcuOutput>..\..\..\lib\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_DependencyCheckOutputName>C:\Users\Public\Documents\RAD Studio\8.0\Bpl\O407bd150.bpl</DCC_DependencyCheckOutputName>
         <DCC_Description>TurboPack Orpheus Delphi datataware designtime package</DCC_Description>
         <DCC_HppOutput>..\cpp\$(Platform)\$(Config)</DCC_HppOutput>
@@ -72,6 +72,8 @@
         <VerInfo_Keys>FileVersion=5.0.0.0;ProductVersion=5.0.0.0;CompanyName=;FileDescription=;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_MajorVer>5</VerInfo_MajorVer>
+        <DCC_BplOutput>..\..\..\bin</DCC_BplOutput>
+        <DCC_DcpOutput>..\..\..\lib\$(Platform)\$(Config)</DCC_DcpOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_Namespace>System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
