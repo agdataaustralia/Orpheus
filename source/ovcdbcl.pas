@@ -1,4 +1,4 @@
-{*********************************************************}
+﻿{*********************************************************}
 {*                   OVCDBCL.PAS 4.06                    *}
 {*********************************************************}
 
@@ -194,7 +194,7 @@ type
       message WM_VSCROLL;
 
   protected
-    procedure ChangeScale(M, D : Integer);
+    procedure ChangeScale(M, D : Integer; isDpiChange: Boolean);
       override;
     procedure CreateParams(var Params: TCreateParams);
       override;
@@ -344,9 +344,9 @@ implementation
 
 {*** TOvcVirtualListBox ***}
 
-procedure TOvcDbColumnList.ChangeScale(M, D : Integer);
+procedure TOvcDbColumnList.ChangeScale(M, D : Integer; isDpiChange: Boolean); // AGDATA correction
 begin
-  inherited ChangeScale(M, D);
+  inherited ChangeScale(M, D, isDpiChange); // AGDATA correction
 
   if M <> D then begin
     {scale row height}

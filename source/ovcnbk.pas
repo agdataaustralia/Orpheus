@@ -1,4 +1,4 @@
-{*********************************************************}
+﻿{*********************************************************}
 {*                    OVCNBK.PAS 4.08                    *}
 {*********************************************************}
 
@@ -290,7 +290,7 @@ type
   protected
     procedure AncestorNotFound(Reader: TReader; const ComponentName: string;
       ComponentClass: TPersistentClass; var Component: TComponent);
-    procedure ChangeScale(M, D : Integer);
+    procedure ChangeScale(M, D : Integer; isDpiChange: Boolean);
       override;
     procedure CreateParams(var Params : TCreateParams);
       override;
@@ -914,9 +914,9 @@ begin
   end;
 end;
 
-procedure TOvcNotebook.ChangeScale(M, D : Integer);
+procedure TOvcNotebook.ChangeScale(M, D : Integer; isDpiChange: Boolean); // AGDATA correction
 begin
-  inherited ChangeScale(M, D);
+  inherited ChangeScale(M, D, isDpiChange); // AGDATA correction
 
   if M <> D then begin
     {scale the tab height and widths}
