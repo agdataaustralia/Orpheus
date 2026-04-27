@@ -938,11 +938,10 @@ procedure TOvcCustomTable.CreateWnd;
 {--------}
 
 procedure TOvcCustomTable.Loaded;
-const
-  cDefPPI = 96;
 begin
-  if not (csDesigning in ComponentState) then
-    ChangeScale(Screen.PixelsPerInch, cDefPPI);
+  { AGDATA: Removed legacy ChangeScale(Screen.PixelsPerInch, 96) call.
+    It double-scaled column widths and row heights under PerMonitorV2 because
+    the form's ScaleForPPI also scales child controls via ScaleControlsForDpi. }
   inherited Loaded;
 end;
 
